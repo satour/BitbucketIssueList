@@ -1,0 +1,103 @@
+<!DOCTYPE html lang="ja">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Bitbucket Issues</title>
+  <meta name="description" content="Bitbucketに登録されている任意のリポジトリのイシューを閲覧する為のツールです。">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+  <div class="container">
+    <div class="board" style="position: -webkit-sticky;position: sticky;top: 0px;background: #FFF;">
+      <h3>Bitbucket Issues</h3>
+      <hr>
+      <div class="row">
+        <div class="six columns">
+          <label for="BitbucketUsername">Bitbucket user</label>
+          <input class="u-full-width" type="text" id="BitbucketUsername">
+        </div>
+        <div class="six columns">
+          <label for="BitbucketPassword">Bitbucket password</label>
+          <input class="u-full-width" type="password" id="BitbucketPassword">
+        </div>
+      </div>
+      <!-- row -->
+      <div class="row">
+        <div class="six columns">
+          <label for="RepoOwnerName">Repository owner name</label>
+          <input class="u-full-width" type="text" id="RepoOwnerName">
+        </div>
+        <div class="six columns">
+          <label for="RepoName">Repository name</label>
+          <input class="u-full-width" type="text" id="RepoName">
+        </div>
+      </div>
+      <!-- row -->
+      <hr>
+      <div class="row">
+        <div class="six columns">
+          <span>Filter by status:</span>
+          <input type="checkbox" name="filter_state[]" value="new" checked>new</input>
+          <input type="checkbox" name="filter_state[]" value="open" checked>open</input>
+          <input type="checkbox" name="filter_state[]" value="resolved">resolved</input>
+          <input type="checkbox" name="filter_state[]" value="on hold">on hold</input>
+          <input type="checkbox" name="filter_state[]" value="closed">closed</input>
+        </div>
+      </div>
+      <!-- row -->
+      <div class="row">
+        <div class="six columns">
+          <span>Sort by(desc):</span>
+          <input type="radio" name="sort_by" value="-updated_on" checked>updated on</input>
+          <input type="radio" name="sort_by" value="-created_on">created on</input>
+          <input type="radio" name="sort_by" value="-id">id</input>
+        </div>
+      </div>
+      <!-- row -->
+      <hr>
+      <br>
+      <div class="row">
+        <!-- button id="btnGetIssues" class="u-full-width" style="background-color: #0E4AA3;color: white; border-color: white;">Submit</button-->
+        <button id="btnGetIssues" class="u-full-width">Submit</button>
+      </div>
+      <hr>
+    </div>
+    <!-- board -->
+
+    <br>
+    <span>検索結果：<span id="count">0</span>件</span>
+
+    <div class="row">
+      <table class="u-full-width">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>title</th>
+            <th>state</th>
+            <th>updated</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- container -->
+
+
+</body>
+
+<script src="app.js"></script>
+
+</html>
